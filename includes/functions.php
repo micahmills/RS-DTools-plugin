@@ -5,7 +5,7 @@
 
 
 //@todo rename Starter_Plugin
-class DT_Starter_Plugin_Functions
+class RSDT_Functions
 {
     private static $_instance = null;
     public static function instance() {
@@ -77,6 +77,7 @@ class DT_Starter_Plugin_Functions
             <select class="select-field" id="language" style="margin-bottom: 0px">
                 <?php
                 foreach ( $contact_fields["language"]["default"] as $key => $value ) {
+                    dt_write_log($contact);
                     if ( $contact["language"]["key"] === $key ) {
                         ?>
                         <option value="<?php echo esc_html( $key ) ?>"
