@@ -1,12 +1,11 @@
 <?php
 /**
- * Plugin Name: Disciple Tools - Starter Plugin
- * Plugin URI: https://github.com/DiscipleTools/disciple-tools-starter-plugin
- * Description: Disciple Tools - Starter Plugin is intended to help developers and integrator jumpstart their extension
- * of the Disciple Tools system.
+ * Plugin Name: Rooze3Vom Disciple Tools
+ * Plugin URI: https://github.com/micahmills/RS-DTools-plugin
+ * Description: Extending Disciple Tools to accomidate Rooze Sevom's Needs
  * Version:  0.1.0
- * Author URI: https://github.com/DiscipleTools
- * GitHub Plugin URI: https://github.com/DiscipleTools/disciple-tools-starter-plugin
+ * Author URI: https://github.com/micahmills
+ * GitHub Plugin URI: https://github.com/micahmills/RS-DTools-plugin
  * Requires at least: 4.7.0
  * (Requires 4.7+ because of the integration of the REST API at 4.7 and the security requirements of this milestone version.)
  * Tested up to: 4.9

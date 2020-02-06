@@ -3,7 +3,6 @@
  * Functions class
  */
 
-
 //@todo rename Starter_Plugin
 class DT_Starter_Plugin_Functions
 {
@@ -25,24 +24,80 @@ class DT_Starter_Plugin_Functions
     public function dt_contact_fields( array $fields, string $post_type = ""){
         //check if we are dealing with a contact
         if ($post_type === "contacts"){
-            //check if the language field is already set
-            if ( !isset( $fields["language"] )){
-                //define the language field
-                $fields["language"] = [
-                    "name" => __( "Spoken Language", "disciple_tools_language" ),
-                    "type" => "key_select",
-                    "default" => [
-                        "none" => __( "", "disciple_tools_language" ),
-                        "english" => __( "English", "disciple_tools_language" ),
-                        "french" => __( "French", "disciple_tools_language" )
-                    ]
+            if ( isset( $fields["sources"]["default"] )){
+                $fields["sources"]["default"]['internet'] = [
+                    "label" => __( "Internet", "disciple_tools_language" ),
+                    "description" => "from Rooze Sevom Import"
+                ];
+            }
+            if ( isset( $fields["sources"]["default"] )){
+                $fields["sources"]["default"]['vpn'] = [
+                    "label" => __( "VPN", "disciple_tools_language" ),
+                    "description" => "from Rooze Sevom Import"
+                ];
+            }
+            if ( isset( $fields["sources"]["default"] )){
+                $fields["sources"]["default"]['enjilme_pdf'] = [
+                    "label" => __( "Enjilme_PDF", "disciple_tools_language" ),
+                    "description" => "from Rooze Sevom Import"
+                ];
+            }
+            if ( isset( $fields["sources"]["default"] )){
+                $fields["sources"]["default"]['sdcard'] = [
+                    "label" => __( "SD Card", "disciple_tools_language" ),
+                    "description" => "from Rooze Sevom Import"
+                ];
+            }
+            if ( isset( $fields["sources"]["default"] )){
+                $fields["sources"]["default"]['friend'] = [
+                    "label" => __( "Friend", "disciple_tools_language" ),
+                    "description" => "from Rooze Sevom Import"
+                ];
+            }
+            if ( isset( $fields["sources"]["default"] )){
+                $fields["sources"]["default"]['familyMember'] = [
+                    "label" => __( "Family Member", "disciple_tools_language" ),
+                    "description" => "from Rooze Sevom Import"
+                ];
+            }
+            if ( isset( $fields["sources"]["default"] )){
+                $fields["sources"]["default"]['RS.com'] = [
+                    "label" => __( "RS.com", "disciple_tools_language" ),
+                    "description" => "from Rooze Sevom Import"
+                ];
+            }
+
+
+            if ( isset( $fields["milestones"]["default"] )){
+                $fields["milestones"]["default"]['friend'] = [
+                    "label" => __( "Friend", "disciple_tools_language" ),
+                    "description" => "from Rooze Sevom Import"
+                ];
+            }
+            if ( isset( $fields["milestones"]["default"] )){
+                $fields["milestones"]["default"]['seeker'] = [
+                    "label" => __( "Seeker", "disciple_tools_language" ),
+                    "description" => "from Rooze Sevom Import"
+                ];
+            }
+            if ( isset( $fields["milestones"]["default"] )){
+                $fields["milestones"]["default"]['newbeliever'] = [
+                    "label" => __( "New Believer", "disciple_tools_language" ),
+                    "description" => "from Rooze Sevom Import"
+                ];
+            }
+            if ( isset( $fields["milestones"]["default"] )){
+                $fields["milestones"]["default"]['believer'] = [
+                    "label" => __( "Believer", "disciple_tools_language" ),
+                    "description" => "from Rooze Sevom Import"
                 ];
             }
             if ( !isset( $fields["martialStatus"] )){
-                //define the language field
                 $fields["maritalStatus"] = [
                     "name" => __( "Marital Status", "disciple_tools_language" ),
                     "type" => "key_select",
+                    "tile" => "rooze_sevom",
+                    "customizable" => "all",
                     "default" => [
                         "" => __( "", "disciple_tools_language" ),
                         "married" => __( "Married", "disciple_tools_language" ),
@@ -93,7 +148,6 @@ class DT_Starter_Plugin_Functions
                     "customizable" => "all"
                 ];
             }
-
 
             if ( !isset( $fields["occupation"] )){
                 //define the language field
@@ -150,6 +204,16 @@ class DT_Starter_Plugin_Functions
                 ];
             }
 
+            if ( !isset( $fields["numberOfChildren"] )){
+                //define the language field
+                $fields["numberOfChildren"] = [
+                    "name" => __( "Number of Children", "disciple_tools_language" ),
+                    "type" => "text",
+                    "default" => "",
+                    "tile" => "rooze_sevom",
+                    "customizable" => "all"
+                ];
+            }
         }
         //don't forget to return the update fields array
         return $fields;
@@ -246,6 +310,10 @@ class DT_Starter_Plugin_Functions
                 ?>
             </select>
 
+            <div class="section-subheader">
+                <?php esc_html_e( 'Number of Children', 'disciple_tools' ) ?>
+            </div>
+            <input id="numberOfChildren" type="text" class="text-input" value="<?php echo esc_html( isset($contact["numberOfChildren"]) ? $contact["numberOfChildren"] : "" ) ?>">
 
             <script type="application/javascript">
                 //enter jquery here if you need it
