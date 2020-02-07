@@ -1,10 +1,10 @@
 <?php
 /**
- * Plugin Name: RS DTools Plugin
+ * Plugin Name: Rooze3Vom Disciple Tools
  * Plugin URI: https://github.com/micahmills/RS-DTools-plugin
- * Description: Disciple Tools - Plugin to add functionality for RoozeSevom
+ * Description: Extending Disciple Tools to accomidate Rooze Sevom's Needs
  * Version:  0.1.0
- * Author URI: https://github.com/DiscipleTools
+ * Author URI: https://github.com/micahmills
  * GitHub Plugin URI: https://github.com/micahmills/RS-DTools-plugin
  * Requires at least: 4.7.0
  * (Requires 4.7+ because of the integration of the REST API at 4.7 and the security requirements of this milestone version.)
@@ -79,7 +79,7 @@ function RSDT_plugin() {
      * Don't load the plugin on every rest request. Only those with the 'sample' namespace
      */
     $is_rest = dt_is_rest();
-    if ( !$is_rest || strpos( dt_get_url_path(), 'sample' ) != false ){
+    if ( !$is_rest || strpos( dt_get_url_path(), 'dt-posts' ) != false ){
         return RSDT_Plugin::get_instance();
     }
 }
@@ -173,7 +173,7 @@ class RSDT_Plugin {
 
         // sample rest api class
         require_once( 'includes/rest-api.php' );
-        RSDT_Plugin_Endpoints::instance();
+        RSDT_Endpoints::instance();
         require_once( 'includes/functions.php' );
         RSDT_Functions::instance();
     }

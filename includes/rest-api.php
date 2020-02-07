@@ -4,7 +4,7 @@
  */
 
 
-class RSDT_Plugin_Endpoints
+class RSDT_Endpoints
 {
     public $permissions = [ 'view_any_contacts', 'view_project_metrics' ];
 

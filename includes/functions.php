@@ -3,7 +3,6 @@
  * Functions class
  */
 
-
 //@todo rename Starter_Plugin
 class RSDT_Functions
 {
@@ -25,16 +24,194 @@ class RSDT_Functions
     public function dt_contact_fields( array $fields, string $post_type = ""){
         //check if we are dealing with a contact
         if ($post_type === "contacts"){
-            //check if the language field is already set
-            if ( !isset( $fields["language"] )){
-                //define the language field
-                $fields["language"] = [
-                    "name" => __( "Spoken Language", "disciple_tools_language" ),
+            if ( isset( $fields["sources"]["default"] )){
+                $fields["sources"]["default"]['internet'] = [
+                    "label" => __( "Internet", "disciple_tools_language" ),
+                    "description" => "from Rooze Sevom Import"
+                ];
+            }
+            if ( isset( $fields["sources"]["default"] )){
+                $fields["sources"]["default"]['vpn'] = [
+                    "label" => __( "VPN", "disciple_tools_language" ),
+                    "description" => "from Rooze Sevom Import"
+                ];
+            }
+            if ( isset( $fields["sources"]["default"] )){
+                $fields["sources"]["default"]['enjilme_pdf'] = [
+                    "label" => __( "Enjilme_PDF", "disciple_tools_language" ),
+                    "description" => "from Rooze Sevom Import"
+                ];
+            }
+            if ( isset( $fields["sources"]["default"] )){
+                $fields["sources"]["default"]['sdcard'] = [
+                    "label" => __( "SD Card", "disciple_tools_language" ),
+                    "description" => "from Rooze Sevom Import"
+                ];
+            }
+            if ( isset( $fields["sources"]["default"] )){
+                $fields["sources"]["default"]['friend'] = [
+                    "label" => __( "Friend", "disciple_tools_language" ),
+                    "description" => "from Rooze Sevom Import"
+                ];
+            }
+            if ( isset( $fields["sources"]["default"] )){
+                $fields["sources"]["default"]['familyMember'] = [
+                    "label" => __( "Family Member", "disciple_tools_language" ),
+                    "description" => "from Rooze Sevom Import"
+                ];
+            }
+            if ( isset( $fields["sources"]["default"] )){
+                $fields["sources"]["default"]['RS.com'] = [
+                    "label" => __( "RS.com", "disciple_tools_language" ),
+                    "description" => "from Rooze Sevom Import"
+                ];
+            }
+
+
+            if ( isset( $fields["milestones"]["default"] )){
+                $fields["milestones"]["default"]['friend'] = [
+                    "label" => __( "Friend", "disciple_tools_language" ),
+                    "description" => "from Rooze Sevom Import"
+                ];
+            }
+            if ( isset( $fields["milestones"]["default"] )){
+                $fields["milestones"]["default"]['seeker'] = [
+                    "label" => __( "Seeker", "disciple_tools_language" ),
+                    "description" => "from Rooze Sevom Import"
+                ];
+            }
+            if ( isset( $fields["milestones"]["default"] )){
+                $fields["milestones"]["default"]['newbeliever'] = [
+                    "label" => __( "New Believer", "disciple_tools_language" ),
+                    "description" => "from Rooze Sevom Import"
+                ];
+            }
+            if ( isset( $fields["milestones"]["default"] )){
+                $fields["milestones"]["default"]['believer'] = [
+                    "label" => __( "Believer", "disciple_tools_language" ),
+                    "description" => "from Rooze Sevom Import"
+                ];
+            }
+            if ( !isset( $fields["martialStatus"] )){
+                $fields["maritalStatus"] = [
+                    "name" => __( "Marital Status", "disciple_tools_language" ),
                     "type" => "key_select",
+                    "tile" => "rooze_sevom",
+                    "customizable" => "all",
                     "default" => [
-                        "english" => __( "English", "disciple_tools_language" ),
-                        "french" => __( "French", "disciple_tools_language" )
+                        "" => __( "", "disciple_tools_language" ),
+                        "married" => __( "Married", "disciple_tools_language" ),
+                        "single" => __( "Single", "disciple_tools_language" ),
+                        "divorced" => __( "Divorced", "disciple_tools_language" )
                     ]
+                ];
+            }
+            if ( !isset( $fields["alias"] )){
+                //define the language field
+                $fields["alias"] = [
+                    "name" => __( "Alias", "disciple_tools_language" ),
+                    "type" => "text",
+                    "default" => "",
+                    "tile" => "rooze_sevom",
+                    "customizable" => "all"
+                ];
+            }
+            if ( !isset( $fields["education"] )){
+                //define the language field
+                $fields["education"] = [
+                    "name" => __( "Education", "disciple_tools_language" ),
+                    "type" => "text",
+                    "default" => "",
+                    "tile" => "rooze_sevom",
+                    "customizable" => "all"
+                ];
+            }
+
+            if ( !isset( $fields["religion"] )){
+                //define the language field
+                $fields["religion"] = [
+                    "name" => __( "Religion", "disciple_tools_language" ),
+                    "type" => "text",
+                    "default" => "",
+                    "tile" => "rooze_sevom",
+                    "customizable" => "all"
+                ];
+            }
+
+            if ( !isset( $fields["religiousOrientation"] )){
+                //define the language field
+                $fields["religiousOrientation"] = [
+                    "name" => __( "Religion Orientation", "disciple_tools_language" ),
+                    "type" => "text",
+                    "default" => "",
+                    "tile" => "rooze_sevom",
+                    "customizable" => "all"
+                ];
+            }
+
+            if ( !isset( $fields["occupation"] )){
+                //define the language field
+                $fields["occupation"] = [
+                    "name" => __( "Occupation", "disciple_tools_language" ),
+                    "type" => "text",
+                    "default" => "",
+                    "tile" => "rooze_sevom",
+                    "customizable" => "all"
+                ];
+            }
+
+            if ( !isset( $fields["dateOfBirth"] )){
+                //define the language field
+                $fields["dateOfBirth"] = [
+                    "name" => __( "Date of Birth", "disciple_tools_language" ),
+                    "type" => "date",
+                    "default" => "",
+                    "tile" => "rooze_sevom",
+                    "customizable" => "all"
+                ];
+            }
+
+            if ( !isset( $fields["dateOfFaith"] )){
+                //define the language field
+                $fields["dateOfFaith"] = [
+                    "name" => __( "Date of Faith", "disciple_tools_language" ),
+                    "type" => "date",
+                    "default" => "",
+                    "tile" => "rooze_sevom",
+                    "customizable" => "all"
+                ];
+            }
+
+            if ( !isset( $fields["churchName"] )){
+                //define the language field
+                $fields["churchName"] = [
+                    "name" => __( "Church Name", "disciple_tools_language" ),
+                    "type" => "text",
+                    "default" => "",
+                    "tile" => "rooze_sevom",
+                    "customizable" => "all"
+                ];
+            }
+
+            if ( !isset( $fields["pastorName"] )){
+                //define the language field
+                $fields["pastorName"] = [
+                    "name" => __( "Pastor's Name", "disciple_tools_language" ),
+                    "type" => "text",
+                    "default" => "",
+                    "tile" => "rooze_sevom",
+                    "customizable" => "all"
+                ];
+            }
+
+            if ( !isset( $fields["numberOfChildren"] )){
+                //define the language field
+                $fields["numberOfChildren"] = [
+                    "name" => __( "Number of Children", "disciple_tools_language" ),
+                    "type" => "text",
+                    "default" => "",
+                    "tile" => "rooze_sevom",
+                    "customizable" => "all"
                 ];
             }
         }
@@ -47,8 +224,8 @@ class RSDT_Functions
         if ($post_type === "contacts"){
             $contact_fields = Disciple_Tools_Contact_Post_Type::instance()->get_custom_fields_settings();
             //check if the language field is set
-            if ( isset( $contact_fields["language"] ) ){
-                $sections[] = "contact_language";
+            if ( isset( $contact_fields["RoozeSevom"] ) ){
+                $sections[] = "RoozeSevom";
             }
             //add more section ids here if you want...
         }
@@ -56,10 +233,10 @@ class RSDT_Functions
     }
 
     public function dt_add_section( $section ) {
-        if ( $section == "contact_language" ) {
+        if ( $section == "RoozeSevom" ) {
             $contact_id     = get_the_ID();
             $contact_fields = Disciple_Tools_Contact_Post_Type::instance()->get_custom_fields_settings();
-            $contact        = Disciple_Tools_Contacts::get_contact( $contact_id, true )
+            $contact        = Disciple_Tools_Contacts::get_contact( $contact_id, true );
             ?>
             <!-- need you own css? -->
             <style type="text/css">
@@ -69,16 +246,60 @@ class RSDT_Functions
             </style>
 
             <label class="section-header">
-                <?php esc_html_e( 'Language', 'disciple_tools' ) ?>
+                <?php esc_html_e( 'Rooze Sevom', 'disciple_tools' ) ?>
             </label>
             <div class="section-subheader">
-                <?php esc_html_e( 'Spoken Language', 'disciple_tools' ) ?> <span class="required-style-example">*</span>
+                <?php esc_html_e( 'Alias', 'disciple_tools' ) ?>
             </div>
-            <select class="select-field" id="language" style="margin-bottom: 0px">
+            <input id="alias" type="text" class="text-input" value="<?php echo esc_html( isset($contact["alias"]) ? $contact["alias"] : "" ) ?>">
+
+            <div class="section-subheader">
+                <?php esc_html_e( 'Education', 'disciple_tools' ) ?>
+            </div>
+            <input id="education" type="text" class="text-input" value="<?php echo esc_html( isset($contact["education"]) ? $contact["education"] : "" ) ?>">
+
+            <div class="section-subheader">
+                <?php esc_html_e( 'Religion', 'disciple_tools' ) ?>
+            </div>
+            <input id="religion" type="text" class="text-input" value="<?php echo esc_html( isset($contact["religion"]) ? $contact["religion"] : "" ) ?>">
+
+            <div class="section-subheader">
+                <?php esc_html_e( 'Religious Orientation', 'disciple_tools' ) ?>
+            </div>
+            <input id="religiousOrientation" type="text" class="text-input" value="<?php echo esc_html( isset($contact["religiousOrientation"]) ? $contact["religiousOrientation"] : "" ) ?>">
+
+            <div class="section-subheader">
+                <?php esc_html_e( 'Occupation', 'disciple_tools' ) ?>
+            </div>
+            <input id="occupation" type="text" class="text-input" value="<?php echo esc_html( isset($contact["occupation"]) ? $contact["occupation"] : "" ) ?>">
+
+            <div class="section-subheader">
+                <?php esc_html_e( 'Date of Birth', 'disciple_tools' ) ?>
+            </div>
+            <input type="text" class="date-picker dt_date_picker" id="dateOfBirth" autocomplete="off"  data-date-format='yy-mm-dd' value="<?php echo esc_html( isset($contact["dateOfBirth"]) ? $contact["dateOfBirth"]["formatted"] : "" ) ?>">
+
+            <div class="section-subheader">
+                <?php esc_html_e( 'Date of Faith', 'disciple_tools' ) ?>
+            </div>
+            <input type="text" class="date-picker dt_date_picker" id="dateOfFaith" autocomplete="off"  data-date-format='yy-mm-dd' value="<?php echo esc_html( isset($contact["dateOfFaith"]) ? $contact["dateOfFaith"]["formatted"] : "" ) ?>">
+
+            <div class="section-subheader">
+                <?php esc_html_e( 'Church Name', 'disciple_tools' ) ?>
+            </div>
+            <input id="churchName" type="text" class="text-input" value="<?php echo esc_html( isset($contact["churchName"]) ? $contact["churchName"] : "" ) ?>">
+
+            <div class="section-subheader">
+                <?php esc_html_e( "Pastor's Name", 'disciple_tools' ) ?>
+            </div>
+            <input id="pastorName" type="text" class="text-input" value="<?php echo esc_html( isset($contact["pastorName"]) ? $contact["pastorName"] : "" ) ?>">
+
+            <div class="section-subheader">
+                <?php esc_html_e( 'Marital Status', 'disciple_tools' ) ?>
+            </div>
+            <select class="select-field" id="maritalStatus" style="margin-bottom: 0px">
                 <?php
-                foreach ( $contact_fields["language"]["default"] as $key => $value ) {
-                    dt_write_log($contact);
-                    if ( $contact["language"]["key"] === $key ) {
+                foreach ( $contact_fields["maritalStatus"]["default"] as $key => $value ) {
+                    if ( $contact["maritalStatus"]["key"] === $key ) {
                         ?>
                         <option value="<?php echo esc_html( $key ) ?>"
                                 selected><?php echo esc_html( $value["label"] ); ?></option>
@@ -89,6 +310,10 @@ class RSDT_Functions
                 ?>
             </select>
 
+            <div class="section-subheader">
+                <?php esc_html_e( 'Number of Children', 'disciple_tools' ) ?>
+            </div>
+            <input id="numberOfChildren" type="text" class="text-input" value="<?php echo esc_html( isset($contact["numberOfChildren"]) ? $contact["numberOfChildren"] : "" ) ?>">
 
             <script type="application/javascript">
                 //enter jquery here if you need it
