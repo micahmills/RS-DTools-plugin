@@ -1,10 +1,10 @@
 <?php
 /**
- * Plugin Name: RS DTools Plugin
+ * Plugin Name: Rooze3Vom Disciple Tools
  * Plugin URI: https://github.com/micahmills/RS-DTools-plugin
- * Description: Disciple Tools - Plugin to add functionality for RoozeSevom
+ * Description: Extending Disciple Tools to accomidate Rooze Sevom's Needs
  * Version:  0.1.0
- * Author URI: https://github.com/DiscipleTools
+ * Author URI: https://github.com/micahmills
  * GitHub Plugin URI: https://github.com/micahmills/RS-DTools-plugin
  * Requires at least: 4.7.0
  * (Requires 4.7+ because of the integration of the REST API at 4.7 and the security requirements of this milestone version.)
@@ -17,7 +17,7 @@
  */
 
 /*******************************************************************
- * Using the RS DT Plugin
+ * Using the Starter Plugin
  * The Disciple Tools starter plugin is intended to accelerate integrations and extensions to the Disciple Tools system.
  * This basic plugin starter has some of the basic elements to quickly launch and extension project in the pattern of
  * the Disciple Tools system.
@@ -25,7 +25,7 @@
 
 /**
  * Refactoring (renaming) this plugin as your own:
- * 1. Refactor all occurrences of the name RSDT, RSDT, RSDT and RS DT Plugin with you're own
+ * 1. Refactor all occurrences of the name DT_Starter, dt_starter, dt-starter and Starter Plugin with you're own
  * name for the `disciple-tools-starter-plugin.php and menu-and-tabs.php files.
  * 2. Update the README.md and LICENSE
  * 3. Update the default.pot file if you intend to make your plugin multilingual. Use a tool like POEdit
@@ -47,25 +47,24 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
-$RSDT_required_dt_theme_version = '0.19.0';
+$dt_starter_required_dt_theme_version = '0.19.0';
 
 /**
- * Gets the instance of the `RSDT_Plugin` class.
+ * Gets the instance of the `DT_Starter_Plugin` class.
  *
  * @since  0.1
  * @access public
  * @return object
  */
-function RSDT_plugin() {
-    global $RSDT_required_dt_theme_version;
+function dt_starter_plugin() {
+    global $dt_starter_required_dt_theme_version;
     $wp_theme = wp_get_theme();
     $version = $wp_theme->version;
     /*
      * Check if the Disciple.Tools theme is loaded and is the latest required version
      */
-    $is_theme_dt = strpos( $wp_theme->get_template(), "disciple-tools-theme" ) !== false || $wp_theme->name === "Disciple Tools";
-    if ( !$is_theme_dt || version_compare( $version, $RSDT_required_dt_theme_version, "<" ) ) {
-        add_action( 'admin_notices', 'RSDT_plugin_hook_admin_notice' );
+    if ( 'disciple-tools-theme' !== $wp_theme->get_template() || $version < $dt_starter_required_dt_theme_version ) {
+        add_action( 'admin_notices', 'dt_starter_plugin_hook_admin_notice' );
         add_action( 'wp_ajax_dismissed_notice_handler', 'dt_hook_ajax_notice_handler' );
         return new WP_Error( 'current_theme_not_dt', 'Disciple Tools Theme not active or not latest version.' );
     }
@@ -79,11 +78,11 @@ function RSDT_plugin() {
      * Don't load the plugin on every rest request. Only those with the 'sample' namespace
      */
     $is_rest = dt_is_rest();
-    if ( !$is_rest || strpos( dt_get_url_path(), 'sample' ) != false ){
-        return RSDT_Plugin::get_instance();
+    if ( !$is_rest || strpos( dt_get_url_path(), 'dt-posts' ) != false ){
+        return DT_Starter_Plugin::get_instance();
     }
 }
-add_action( 'after_setup_theme', 'RSDT_plugin' );
+add_action( 'plugins_loaded', 'dt_starter_plugin' );
 
 /**
  * Singleton class for setting up the plugin.
@@ -91,7 +90,7 @@ add_action( 'after_setup_theme', 'RSDT_plugin' );
  * @since  0.1
  * @access public
  */
-class RSDT_Plugin {
+class DT_Starter_Plugin {
 
     /**
      * Declares public variables
@@ -119,7 +118,7 @@ class RSDT_Plugin {
         static $instance = null;
 
         if ( is_null( $instance ) ) {
-            $instance = new RSDT_plugin();
+            $instance = new dt_starter_plugin();
             $instance->setup();
             $instance->includes();
             $instance->setup_actions();
@@ -168,14 +167,14 @@ class RSDT_Plugin {
         $this->img_uri      = trailingslashit( $this->dir_uri . 'img' );
 
         // Admin and settings variables
-        $this->token             = 'RSDT_plugin';
+        $this->token             = 'dt_starter_plugin';
         $this->version             = '0.1';
 
         // sample rest api class
         require_once( 'includes/rest-api.php' );
-        RSDT_Plugin_Endpoints::instance();
+        DT_Starter_Plugin_Endpoints::instance();
         require_once( 'includes/functions.php' );
-        RSDT_Functions::instance();
+        DT_Starter_Plugin_Functions::instance();
     }
 
     /**
@@ -200,12 +199,12 @@ class RSDT_Plugin {
              * @see https://github.com/DiscipleTools/disciple-tools-version-control/wiki/How-to-Update-the-Starter-Plugin
              */
 //            @todo enable this section with your own hosted file
-//            $hosted_json = "https://raw.githubusercontent.com/DiscipleTools/disciple-tools-version-control/master/disciple-tools-starter-plugin-version-control.json";
-//            Puc_v4_Factory::buildUpdateChecker(
-//                $hosted_json,
-//                __FILE__,
-//                'disciple-tools-starter-plugin'
-//            );
+           $hosted_json = "https://raw.githubusercontent.com/DiscipleTools/disciple-tools-version-control/master/disciple-tools-starter-plugin-version-control.json";
+           Puc_v4_Factory::buildUpdateChecker(
+               $hosted_json,
+               __FILE__,
+               'disciple-tools-starter-plugin'
+           );
         }
 
         // Internationalize the text strings used.
@@ -238,7 +237,7 @@ class RSDT_Plugin {
      * @return void
      */
     public static function deactivation() {
-        delete_option( 'dismissed-RSDT' );
+        delete_option( 'dismissed-dt-starter' );
     }
 
     /**
@@ -249,7 +248,7 @@ class RSDT_Plugin {
      * @return void
      */
     public function i18n() {
-        load_plugin_textdomain( 'RSDT_plugin', false, trailingslashit( dirname( plugin_basename( __FILE__ ) ) ). 'languages' );
+        load_plugin_textdomain( 'dt_starter_plugin', false, trailingslashit( dirname( plugin_basename( __FILE__ ) ) ). 'languages' );
     }
 
     /**
@@ -260,7 +259,7 @@ class RSDT_Plugin {
      * @return string
      */
     public function __toString() {
-        return 'RSDT_plugin';
+        return 'dt_starter_plugin';
     }
 
     /**
@@ -271,7 +270,7 @@ class RSDT_Plugin {
      * @return void
      */
     public function __clone() {
-        _doing_it_wrong( __FUNCTION__, esc_html__( 'Whoah, partner!', 'RSDT_plugin' ), '0.1' );
+        _doing_it_wrong( __FUNCTION__, esc_html__( 'Whoah, partner!', 'dt_starter_plugin' ), '0.1' );
     }
 
     /**
@@ -282,7 +281,7 @@ class RSDT_Plugin {
      * @return void
      */
     public function __wakeup() {
-        _doing_it_wrong( __FUNCTION__, esc_html__( 'Whoah, partner!', 'RSDT_plugin' ), '0.1' );
+        _doing_it_wrong( __FUNCTION__, esc_html__( 'Whoah, partner!', 'dt_starter_plugin' ), '0.1' );
     }
 
     /**
@@ -294,7 +293,7 @@ class RSDT_Plugin {
      */
     public function __call( $method = '', $args = array() ) {
         // @codingStandardsIgnoreLine
-        _doing_it_wrong( "RSDT_plugin::{$method}", esc_html__( 'Method does not exist.', 'RSDT_plugin' ), '0.1' );
+        _doing_it_wrong( "dt_starter_plugin::{$method}", esc_html__( 'Method does not exist.', 'dt_starter_plugin' ), '0.1' );
         unset( $method, $args );
         return null;
     }
@@ -302,30 +301,30 @@ class RSDT_Plugin {
 // end main plugin class
 
 // Register activation hook.
-register_activation_hook( __FILE__, [ 'RSDT_Plugin', 'activation' ] );
-register_deactivation_hook( __FILE__, [ 'RSDT_Plugin', 'deactivation' ] );
+register_activation_hook( __FILE__, [ 'DT_Starter_Plugin', 'activation' ] );
+register_deactivation_hook( __FILE__, [ 'DT_Starter_Plugin', 'deactivation' ] );
 
-function RSDT_plugin_hook_admin_notice() {
-    global $RSDT_required_dt_theme_version;
+function dt_starter_plugin_hook_admin_notice() {
+    global $dt_starter_required_dt_theme_version;
     $wp_theme = wp_get_theme();
     $current_version = $wp_theme->version;
-    $message = __( "'Disciple Tools - RS DT Plugin' plugin requires 'Disciple Tools' theme to work. Please activate 'Disciple Tools' theme or make sure it is latest version.", "RSDT_plugin" );
+    $message = __( "'Disciple Tools - Starter Plugin' plugin requires 'Disciple Tools' theme to work. Please activate 'Disciple Tools' theme or make sure it is latest version.", "dt_starter_plugin" );
     if ( $wp_theme->get_template() === "disciple-tools-theme" ){
-        $message .= sprintf( esc_html__( 'Current Disciple Tools version: %1$s, required version: %2$s', 'RSDT_plugin' ), esc_html( $current_version ), esc_html( $RSDT_required_dt_theme_version ) );
+        $message .= sprintf( esc_html__( 'Current Disciple Tools version: %1$s, required version: %2$s', 'dt_starter_plugin' ), esc_html( $current_version ), esc_html( $dt_starter_required_dt_theme_version ) );
     }
     // Check if it's been dismissed...
-    if ( ! get_option( 'dismissed-RSDT', false ) ) { ?>
-        <div class="notice notice-error notice-RSDT is-dismissible" data-notice="RSDT">
+    if ( ! get_option( 'dismissed-dt-starter', false ) ) { ?>
+        <div class="notice notice-error notice-dt-starter is-dismissible" data-notice="dt-starter">
             <p><?php echo esc_html( $message );?></p>
         </div>
         <script>
             jQuery(function($) {
-                $( document ).on( 'click', '.notice-RSDT .notice-dismiss', function () {
+                $( document ).on( 'click', '.notice-dt-starter .notice-dismiss', function () {
                     $.ajax( ajaxurl, {
                         type: 'POST',
                         data: {
                             action: 'dismissed_notice_handler',
-                            type: 'RSDT',
+                            type: 'dt-starter',
                             security: '<?php echo esc_html( wp_create_nonce( 'wp_rest_dismiss' ) ) ?>'
                         }
                     })
