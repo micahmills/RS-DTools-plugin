@@ -17,7 +17,7 @@
  */
 
 /*******************************************************************
- * Using the RS DT Plugin
+ * Using the Starter Plugin
  * The Disciple Tools starter plugin is intended to accelerate integrations and extensions to the Disciple Tools system.
  * This basic plugin starter has some of the basic elements to quickly launch and extension project in the pattern of
  * the Disciple Tools system.
@@ -25,7 +25,7 @@
 
 /**
  * Refactoring (renaming) this plugin as your own:
- * 1. Refactor all occurrences of the name RSDT, RSDT, RSDT and RS DT Plugin with you're own
+ * 1. Refactor all occurrences of the name DT_Starter, RSDT, dt-starter and Starter Plugin with you're own
  * name for the `disciple-tools-starter-plugin.php and menu-and-tabs.php files.
  * 2. Update the README.md and LICENSE
  * 3. Update the default.pot file if you intend to make your plugin multilingual. Use a tool like POEdit
@@ -50,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $RSDT_required_dt_theme_version = '0.19.0';
 
 /**
- * Gets the instance of the `RSDT_Plugin` class.
+ * Gets the instance of the `DT_Starter_Plugin` class.
  *
  * @since  0.1
  * @access public
@@ -63,8 +63,7 @@ function RSDT_plugin() {
     /*
      * Check if the Disciple.Tools theme is loaded and is the latest required version
      */
-    $is_theme_dt = strpos( $wp_theme->get_template(), "disciple-tools-theme" ) !== false || $wp_theme->name === "Disciple Tools";
-    if ( !$is_theme_dt || version_compare( $version, $RSDT_required_dt_theme_version, "<" ) ) {
+    if ( 'disciple-tools-theme' !== $wp_theme->get_template() || $version < $RSDT_required_dt_theme_version ) {
         add_action( 'admin_notices', 'RSDT_plugin_hook_admin_notice' );
         add_action( 'wp_ajax_dismissed_notice_handler', 'dt_hook_ajax_notice_handler' );
         return new WP_Error( 'current_theme_not_dt', 'Disciple Tools Theme not active or not latest version.' );
@@ -83,7 +82,7 @@ function RSDT_plugin() {
         return RSDT_Plugin::get_instance();
     }
 }
-add_action( 'after_setup_theme', 'RSDT_plugin' );
+add_action( 'plugins_loaded', 'RSDT_Plugin' );
 
 /**
  * Singleton class for setting up the plugin.
@@ -200,12 +199,12 @@ class RSDT_Plugin {
              * @see https://github.com/DiscipleTools/disciple-tools-version-control/wiki/How-to-Update-the-Starter-Plugin
              */
 //            @todo enable this section with your own hosted file
-//            $hosted_json = "https://raw.githubusercontent.com/DiscipleTools/disciple-tools-version-control/master/disciple-tools-starter-plugin-version-control.json";
-//            Puc_v4_Factory::buildUpdateChecker(
-//                $hosted_json,
-//                __FILE__,
-//                'disciple-tools-starter-plugin'
-//            );
+           $hosted_json = "https://raw.githubusercontent.com/DiscipleTools/disciple-tools-version-control/master/disciple-tools-starter-plugin-version-control.json";
+           Puc_v4_Factory::buildUpdateChecker(
+               $hosted_json,
+               __FILE__,
+               'disciple-tools-starter-plugin'
+           );
         }
 
         // Internationalize the text strings used.
@@ -238,7 +237,7 @@ class RSDT_Plugin {
      * @return void
      */
     public static function deactivation() {
-        delete_option( 'dismissed-RSDT' );
+        delete_option( 'dismissed-dt-starter' );
     }
 
     /**
@@ -302,30 +301,30 @@ class RSDT_Plugin {
 // end main plugin class
 
 // Register activation hook.
-register_activation_hook( __FILE__, [ 'RSDT_Plugin', 'activation' ] );
-register_deactivation_hook( __FILE__, [ 'RSDT_Plugin', 'deactivation' ] );
+register_activation_hook( __FILE__, [ 'DT_Starter_Plugin', 'activation' ] );
+register_deactivation_hook( __FILE__, [ 'DT_Starter_Plugin', 'deactivation' ] );
 
 function RSDT_plugin_hook_admin_notice() {
     global $RSDT_required_dt_theme_version;
     $wp_theme = wp_get_theme();
     $current_version = $wp_theme->version;
-    $message = __( "'Disciple Tools - RS DT Plugin' plugin requires 'Disciple Tools' theme to work. Please activate 'Disciple Tools' theme or make sure it is latest version.", "RSDT_plugin" );
+    $message = __( "'Disciple Tools - Starter Plugin' plugin requires 'Disciple Tools' theme to work. Please activate 'Disciple Tools' theme or make sure it is latest version.", "RSDT_plugin" );
     if ( $wp_theme->get_template() === "disciple-tools-theme" ){
         $message .= sprintf( esc_html__( 'Current Disciple Tools version: %1$s, required version: %2$s', 'RSDT_plugin' ), esc_html( $current_version ), esc_html( $RSDT_required_dt_theme_version ) );
     }
     // Check if it's been dismissed...
-    if ( ! get_option( 'dismissed-RSDT', false ) ) { ?>
-        <div class="notice notice-error notice-RSDT is-dismissible" data-notice="RSDT">
+    if ( ! get_option( 'dismissed-dt-starter', false ) ) { ?>
+        <div class="notice notice-error notice-dt-starter is-dismissible" data-notice="dt-starter">
             <p><?php echo esc_html( $message );?></p>
         </div>
         <script>
             jQuery(function($) {
-                $( document ).on( 'click', '.notice-RSDT .notice-dismiss', function () {
+                $( document ).on( 'click', '.notice-dt-starter .notice-dismiss', function () {
                     $.ajax( ajaxurl, {
                         type: 'POST',
                         data: {
                             action: 'dismissed_notice_handler',
-                            type: 'RSDT',
+                            type: 'dt-starter',
                             security: '<?php echo esc_html( wp_create_nonce( 'wp_rest_dismiss' ) ) ?>'
                         }
                     })
