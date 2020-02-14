@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Rooze3Vom Disciple Tools
  * Plugin URI: https://github.com/micahmills/RS-DTools-plugin
- * Description: Extending Disciple Tools to accomidate Rooze Sevom's Needs
+ * Description: Extending Disciple Tools to accommmodate Rooze Sevom's Needs
  * Version:  0.1.0
  * Author URI: https://github.com/micahmills
  * GitHub Plugin URI: https://github.com/micahmills/RS-DTools-plugin
@@ -50,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $RSDT_required_dt_theme_version = '0.19.0';
 
 /**
- * Gets the instance of the `DT_Starter_Plugin` class.
+ * Gets the instance of the `RSDT_Plugin` class.
  *
  * @since  0.1
  * @access public
@@ -199,11 +199,11 @@ class RSDT_Plugin {
              * @see https://github.com/DiscipleTools/disciple-tools-version-control/wiki/How-to-Update-the-Starter-Plugin
              */
 //            @todo enable this section with your own hosted file
-           $hosted_json = "https://raw.githubusercontent.com/DiscipleTools/disciple-tools-version-control/master/disciple-tools-starter-plugin-version-control.json";
+           $hosted_json = "https://raw.githubusercontent.com/micahmills/RS-DTools-plugin/master/RS-DTools-plugin-version-control.json";
            Puc_v4_Factory::buildUpdateChecker(
                $hosted_json,
                __FILE__,
-               'disciple-tools-starter-plugin'
+               'RS-DTools-plugin'
            );
         }
 
@@ -301,13 +301,14 @@ class RSDT_Plugin {
 // end main plugin class
 
 // Register activation hook.
-register_activation_hook( __FILE__, [ 'DT_Starter_Plugin', 'activation' ] );
-register_deactivation_hook( __FILE__, [ 'DT_Starter_Plugin', 'deactivation' ] );
+register_activation_hook( __FILE__, [ 'RSDT_Plugin', 'activation' ] );
+register_deactivation_hook( __FILE__, [ 'RSDT_Plugin', 'deactivation' ] );
 
 function RSDT_plugin_hook_admin_notice() {
     global $RSDT_required_dt_theme_version;
     $wp_theme = wp_get_theme();
     $current_version = $wp_theme->version;
+    error_log($current_version);
     $message = __( "'Disciple Tools - Starter Plugin' plugin requires 'Disciple Tools' theme to work. Please activate 'Disciple Tools' theme or make sure it is latest version.", "RSDT_plugin" );
     if ( $wp_theme->get_template() === "disciple-tools-theme" ){
         $message .= sprintf( esc_html__( 'Current Disciple Tools version: %1$s, required version: %2$s', 'RSDT_plugin' ), esc_html( $current_version ), esc_html( $RSDT_required_dt_theme_version ) );

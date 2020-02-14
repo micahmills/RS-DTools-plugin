@@ -233,7 +233,7 @@ class RSDT_Functions
     }
 
     public function dt_add_section( $section ) {
-        if ( $section == "RoozeSevom" ) {
+        if ( $section == "rooze_sevom" ) {
             $contact_id     = get_the_ID();
             $contact_fields = Disciple_Tools_Contact_Post_Type::instance()->get_custom_fields_settings();
             $contact        = Disciple_Tools_Contacts::get_contact( $contact_id, true );
@@ -245,9 +245,6 @@ class RSDT_Functions
                 }
             </style>
 
-            <label class="section-header">
-                <?php esc_html_e( 'Rooze Sevom', 'disciple_tools' ) ?>
-            </label>
             <div class="section-subheader">
                 <?php esc_html_e( 'Alias', 'disciple_tools' ) ?>
             </div>
