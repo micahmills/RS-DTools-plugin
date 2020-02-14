@@ -3,7 +3,7 @@
  * Plugin Name: Rooze3Vom Disciple Tools
  * Plugin URI: https://github.com/micahmills/RS-DTools-plugin
  * Description: Extending Disciple Tools to accommmodate Rooze Sevom's Needs
- * Version:  0.1.0
+ * Version:  0.1.1
  * Author URI: https://github.com/micahmills
  * GitHub Plugin URI: https://github.com/micahmills/RS-DTools-plugin
  * Requires at least: 4.7.0
@@ -47,7 +47,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
-$RSDT_required_dt_theme_version = '0.19.0';
+$RSDT_required_dt_theme_version = '0.27';
 
 /**
  * Gets the instance of the `RSDT_Plugin` class.
@@ -63,10 +63,14 @@ function RSDT_plugin() {
     /*
      * Check if the Disciple.Tools theme is loaded and is the latest required version
      */
-    if ( 'disciple-tools-theme' !== $wp_theme->get_template() || $version < $RSDT_required_dt_theme_version ) {
-        add_action( 'admin_notices', 'RSDT_plugin_hook_admin_notice' );
-        add_action( 'wp_ajax_dismissed_notice_handler', 'dt_hook_ajax_notice_handler' );
-        return new WP_Error( 'current_theme_not_dt', 'Disciple Tools Theme not active or not latest version.' );
+    $is_theme_dt = strpos( $wp_theme->get_template(), "disciple-tools-theme" ) !== false || $wp_theme->name === "Disciple Tools";
+    if ( !$is_theme_dt || version_compare( $version, $RSDT_required_dt_theme_version, "<" ) ) {
+        if ( ! is_multisite() ) {
+            add_action('admin_notices', 'dt_starter_plugin_hook_admin_notice');
+            add_action('wp_ajax_dismissed_notice_handler', 'dt_hook_ajax_notice_handler');
+        }
+
+        return false;
     }
     /**
      * Load useful function from the theme
@@ -155,7 +159,6 @@ class RSDT_Plugin {
      * @return void
      */
     private function setup() {
-
         // Main plugin directory path and URI.
         $this->dir_path     = trailingslashit( plugin_dir_path( __FILE__ ) );
         $this->dir_uri      = trailingslashit( plugin_dir_url( __FILE__ ) );
@@ -308,9 +311,10 @@ function RSDT_plugin_hook_admin_notice() {
     global $RSDT_required_dt_theme_version;
     $wp_theme = wp_get_theme();
     $current_version = $wp_theme->version;
-    error_log($current_version);
     $message = __( "'Disciple Tools - Starter Plugin' plugin requires 'Disciple Tools' theme to work. Please activate 'Disciple Tools' theme or make sure it is latest version.", "RSDT_plugin" );
-    if ( $wp_theme->get_template() === "disciple-tools-theme" ){
+    $is_theme_dt = strpos( $wp_theme->get_template(), "disciple-tools-theme" ) !== false || $wp_theme->name === "Disciple Tools";
+
+    if ( $is_theme_dt ){
         $message .= sprintf( esc_html__( 'Current Disciple Tools version: %1$s, required version: %2$s', 'RSDT_plugin' ), esc_html( $current_version ), esc_html( $RSDT_required_dt_theme_version ) );
     }
     // Check if it's been dismissed...
