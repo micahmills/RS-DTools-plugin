@@ -68,8 +68,8 @@ function RSDT_plugin() {
     $is_theme_dt = strpos( $wp_theme->get_template(), "disciple-tools-theme" ) !== false || $wp_theme->name === "Disciple Tools";
     if ( !$is_theme_dt || version_compare( $version, $RSDT_required_dt_theme_version, "<" ) ) {
         if ( ! is_multisite() ) {
-            add_action('admin_notices', 'dt_starter_plugin_hook_admin_notice');
-            add_action('wp_ajax_dismissed_notice_handler', 'dt_hook_ajax_notice_handler');
+            add_action( 'admin_notices', 'dt_starter_plugin_hook_admin_notice' );
+            add_action( 'wp_ajax_dismissed_notice_handler', 'dt_hook_ajax_notice_handler' );
         }
 
         return false;
@@ -204,12 +204,12 @@ class RSDT_Plugin {
              * @see https://github.com/DiscipleTools/disciple-tools-version-control/wiki/How-to-Update-the-Starter-Plugin
              */
 //            @todo enable this section with your own hosted file
-           $hosted_json = "https://raw.githubusercontent.com/micahmills/RS-DTools-plugin/master/RS-DTools-plugin-version-control.json";
-           Puc_v4_Factory::buildUpdateChecker(
-               $hosted_json,
-               __FILE__,
-               'RS-DTools-plugin'
-           );
+            $hosted_json = "https://raw.githubusercontent.com/micahmills/RS-DTools-plugin/master/RS-DTools-plugin-version-control.json";
+            Puc_v4_Factory::buildUpdateChecker(
+                $hosted_json,
+                __FILE__,
+                'RS-DTools-plugin'
+            );
         }
 
         // Internationalize the text strings used.
@@ -254,19 +254,19 @@ class RSDT_Plugin {
      */
     public function i18n() {
             //Take from loadTextDomain() in /disciple-tools-theme/dt-core/libraries/plugin-update-checker/Puc/v4p5/UpdateChecker.php
-			$domain = 'RSDT';
-			$locale = apply_filters(
-				'plugin_locale',
-				(is_admin() && function_exists('get_user_locale')) ? get_user_locale() : get_locale(),
-				$domain
-			);
+            $domain = 'RSDT';
+            $locale = apply_filters(
+                'plugin_locale',
+                ( is_admin() && function_exists( 'get_user_locale' ) ) ? get_user_locale() : get_locale(),
+                $domain
+            );
 
-			$moFile = $domain . '-' . $locale . '.mo';
-            $path = realpath(dirname(__FILE__) . '/languages');
+            $moFile = $domain . '-' . $locale . '.mo';
+            $path = realpath( dirname( __FILE__ ) . '/languages' );
 
-			if ($path && file_exists($path)) {
-				load_textdomain($domain, $path . '/' . $moFile);
-			}
+        if ( $path && file_exists( $path )) {
+                load_textdomain( $domain, $path . '/' . $moFile );
+        }
     }
 
     /**
@@ -319,8 +319,8 @@ class RSDT_Plugin {
 // end main plugin class
 
 // Register activation hook.
-register_activation_hook( __FILE__, [ 'RSDT_Plugin', 'activation' ] );
-register_deactivation_hook( __FILE__, [ 'RSDT_Plugin', 'deactivation' ] );
+register_activation_hook( __FILE__, array( 'RSDT_Plugin', 'activation' ) );
+register_deactivation_hook( __FILE__, array( 'RSDT_Plugin', 'deactivation' ) );
 
 function RSDT_plugin_hook_admin_notice() {
     global $RSDT_required_dt_theme_version;

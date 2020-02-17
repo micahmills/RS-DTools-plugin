@@ -15,9 +15,9 @@ class RSDT_Functions
     } // End instance()
 
     public function __construct() {
-        add_filter( "dt_custom_fields_settings", [ $this, "dt_contact_fields" ], 1, 2 );
-        add_filter( "dt_details_additional_section_ids", [ $this, "dt_declare_section_id" ], 999, 2 );
-        add_action( "dt_details_additional_section", [ $this, "dt_add_section" ] );
+        add_filter( "dt_custom_fields_settings", array( $this, "dt_contact_fields" ), 1, 2 );
+        add_filter( "dt_details_additional_section_ids", array( $this, "dt_declare_section_id" ), 999, 2 );
+        add_action( "dt_details_additional_section", array( $this, "dt_add_section" ) );
 
     }
 
@@ -99,7 +99,7 @@ class RSDT_Functions
                     "tile" => "rooze_sevom",
                     "customizable" => "all",
                     "default" => [
-                        "" => __( "", "RSDT" ),
+                        "" => "",
                         "married" => __( "Married", "RSDT" ),
                         "single" => __( "Single", "RSDT" ),
                         "divorced" => __( "Divorced", "RSDT" )
@@ -247,48 +247,49 @@ class RSDT_Functions
 
             <div class="section-subheader">
                 <?php esc_html_e( 'Alias', 'RSDT' ) ?>
+                Test
             </div>
-            <input id="alias" type="text" class="text-input" value="<?php echo esc_html( isset($contact["alias"]) ? $contact["alias"] : "" ) ?>">
+            <input id="alias" type="text" class="text-input" value="<?php echo esc_html( isset( $contact["alias"] ) ? $contact["alias"] : "" ) ?>">
 
             <div class="section-subheader">
                 <?php esc_html_e( 'Education', 'RSDT' ) ?>
             </div>
-            <input id="education" type="text" class="text-input" value="<?php echo esc_html( isset($contact["education"]) ? $contact["education"] : "" ) ?>">
+            <input id="education" type="text" class="text-input" value="<?php echo esc_html( isset( $contact["education"] ) ? $contact["education"] : "" ) ?>">
 
             <div class="section-subheader">
                 <?php esc_html_e( 'Religion', 'RSDT' ) ?>
             </div>
-            <input id="religion" type="text" class="text-input" value="<?php echo esc_html( isset($contact["religion"]) ? $contact["religion"] : "" ) ?>">
+            <input id="religion" type="text" class="text-input" value="<?php echo esc_html( isset( $contact["religion"] ) ? $contact["religion"] : "" ) ?>">
 
             <div class="section-subheader">
                 <?php esc_html_e( 'Religious Orientation', 'RSDT' ) ?>
             </div>
-            <input id="religiousOrientation" type="text" class="text-input" value="<?php echo esc_html( isset($contact["religiousOrientation"]) ? $contact["religiousOrientation"] : "" ) ?>">
+            <input id="religiousOrientation" type="text" class="text-input" value="<?php echo esc_html( isset( $contact["religiousOrientation"] ) ? $contact["religiousOrientation"] : "" ) ?>">
 
             <div class="section-subheader">
                 <?php esc_html_e( 'Occupation', 'RSDT' ) ?>
             </div>
-            <input id="occupation" type="text" class="text-input" value="<?php echo esc_html( isset($contact["occupation"]) ? $contact["occupation"] : "" ) ?>">
+            <input id="occupation" type="text" class="text-input" value="<?php echo esc_html( isset( $contact["occupation"] ) ? $contact["occupation"] : "" ) ?>">
 
             <div class="section-subheader">
                 <?php esc_html_e( 'Date of Birth', 'RSDT' ) ?>
             </div>
-            <input type="text" class="date-picker dt_date_picker" id="dateOfBirth" autocomplete="off"  data-date-format='yy-mm-dd' value="<?php echo esc_html( isset($contact["dateOfBirth"]) ? $contact["dateOfBirth"]["formatted"] : "" ) ?>">
+            <input type="text" class="date-picker dt_date_picker" id="dateOfBirth" autocomplete="off"  data-date-format='yy-mm-dd' value="<?php echo esc_html( isset( $contact["dateOfBirth"] ) ? $contact["dateOfBirth"]["formatted"] : "" ) ?>">
 
             <div class="section-subheader">
                 <?php esc_html_e( 'Date of Faith', 'RSDT' ) ?>
             </div>
-            <input type="text" class="date-picker dt_date_picker" id="dateOfFaith" autocomplete="off"  data-date-format='yy-mm-dd' value="<?php echo esc_html( isset($contact["dateOfFaith"]) ? $contact["dateOfFaith"]["formatted"] : "" ) ?>">
+            <input type="text" class="date-picker dt_date_picker" id="dateOfFaith" autocomplete="off"  data-date-format='yy-mm-dd' value="<?php echo esc_html( isset( $contact["dateOfFaith"] ) ? $contact["dateOfFaith"]["formatted"] : "" ) ?>">
 
             <div class="section-subheader">
                 <?php esc_html_e( 'Church Name', 'RSDT' ) ?>
             </div>
-            <input id="churchName" type="text" class="text-input" value="<?php echo esc_html( isset($contact["churchName"]) ? $contact["churchName"] : "" ) ?>">
+            <input id="churchName" type="text" class="text-input" value="<?php echo esc_html( isset( $contact["churchName"] ) ? $contact["churchName"] : "" ) ?>">
 
             <div class="section-subheader">
                 <?php esc_html_e( "Pastor's Name", 'RSDT' ) ?>
             </div>
-            <input id="pastorName" type="text" class="text-input" value="<?php echo esc_html( isset($contact["pastorName"]) ? $contact["pastorName"] : "" ) ?>">
+            <input id="pastorName" type="text" class="text-input" value="<?php echo esc_html( isset( $contact["pastorName"] ) ? $contact["pastorName"] : "" ) ?>">
 
             <div class="section-subheader">
                 <?php esc_html_e( 'Marital Status', 'RSDT' ) ?>
@@ -310,16 +311,9 @@ class RSDT_Functions
             <div class="section-subheader">
                 <?php esc_html_e( 'Number of Children', 'RSDT' ) ?>
             </div>
-            <input id="numberOfChildren" type="text" class="text-input" value="<?php echo esc_html( isset($contact["numberOfChildren"]) ? $contact["numberOfChildren"] : "" ) ?>">
-
-            <script type="application/javascript">
-                //enter jquery here if you need it
-                jQuery(($) => {
-                })
-            </script>
+            <input id="numberOfChildren" type="text" class="text-input" value="<?php echo esc_html( isset( $contact["numberOfChildren"] ) ? $contact["numberOfChildren"] : "" ) ?>">
             <?php
         }
-
         //add more sections here if you want...
     }
 
