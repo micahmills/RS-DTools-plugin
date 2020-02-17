@@ -213,7 +213,7 @@ class RSDT_Plugin {
         }
 
         // Internationalize the text strings used.
-        add_action( 'plugins_loaded', array( $this, 'i18n' ), 2 );
+        add_action( 'init', array( $this, 'i18n' ), 2 );
     }
 
     /**
@@ -253,7 +253,9 @@ class RSDT_Plugin {
      * @return void
      */
     public function i18n() {
-        load_plugin_textdomain( 'RSDT_plugin', false, trailingslashit( dirname( plugin_basename( __FILE__ ) ) ). 'languages' );
+        global $locale;
+        $locale = get_user_locale();
+        load_plugin_textdomain( 'RSDT', false, trailingslashit( dirname( plugin_basename( __FILE__ ) ) ). 'languages/' );
     }
 
     /**
