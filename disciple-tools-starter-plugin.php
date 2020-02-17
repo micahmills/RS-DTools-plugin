@@ -248,11 +248,21 @@ class DT_Starter_Plugin {
      * @return void
      */
     public function i18n() {
-        global $locale;
-        $locale = get_user_locale();
-        load_plugin_textdomain( 'dt_starter_plugin', false, trailingslashit( dirname( plugin_basename( __FILE__ ) ) ). 'languages/' );
-    }
+        //Take from loadTextDomain() in /disciple-tools-theme/dt-core/libraries/plugin-update-checker/Puc/v4p5/UpdateChecker.php
+        $domain = 'dt_starter_plugin';
+        $locale = apply_filters(
+            'plugin_locale',
+            (is_admin() && function_exists('get_user_locale')) ? get_user_locale() : get_locale(),
+            $domain
+        );
 
+        $moFile = $domain . '-' . $locale . '.mo';
+        $path = realpath(dirname(__FILE__) . '/languages');
+
+        if ($path && file_exists($path)) {
+            load_textdomain($domain, $path . '/' . $moFile);
+        }
+    }
     /**
      * Magic method to output a string if trying to use the object as a string.
      *
