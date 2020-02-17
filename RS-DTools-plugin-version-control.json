@@ -1,7 +1,7 @@
 {
     "name": "Rooze3Vom Disciple Tools Plugin",
-    "version": "0.1.0",
-    "download_url": "https://github.com/micahmills/RS-DTools-plugin/releases/download/0.1.0/RS-DTools-plugin.zip",
+    "version": "0.2",
+    "download_url": "https://github.com/micahmills/RS-DTools-plugin/releases/download/0.2/RS-DTools-plugin.zip",
 
     "homepage": "https://github.com/micahmills/RS-DTools-plugin",
     "requires": "4.7",
