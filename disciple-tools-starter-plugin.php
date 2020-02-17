@@ -3,7 +3,7 @@
  * Plugin Name: Rooze3Vom Disciple Tools
  * Plugin URI: https://github.com/micahmills/RS-DTools-plugin
  * Description: Extending Disciple Tools to accommmodate Rooze Sevom's Needs
- * Version:  0.1.1
+ * Version:  0.2
  * Author URI: https://github.com/micahmills
  * Text Domain: RSDT
  * Domain Path: /languages/
