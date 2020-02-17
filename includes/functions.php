@@ -26,43 +26,43 @@ class RSDT_Functions
         if ($post_type === "contacts"){
             if ( isset( $fields["sources"]["default"] )){
                 $fields["sources"]["default"]['internet'] = [
-                    "label" => __( "Internet", "disciple_tools_language" ),
+                    "label" => __( "Internet", "RSDT" ),
                     "description" => "from Rooze Sevom Import"
                 ];
             }
             if ( isset( $fields["sources"]["default"] )){
                 $fields["sources"]["default"]['vpn'] = [
-                    "label" => __( "VPN", "disciple_tools_language" ),
+                    "label" => __( "VPN", "RSDT" ),
                     "description" => "from Rooze Sevom Import"
                 ];
             }
             if ( isset( $fields["sources"]["default"] )){
                 $fields["sources"]["default"]['enjilme_pdf'] = [
-                    "label" => __( "Enjilme_PDF", "disciple_tools_language" ),
+                    "label" => __( "Enjilme_PDF", "RSDT" ),
                     "description" => "from Rooze Sevom Import"
                 ];
             }
             if ( isset( $fields["sources"]["default"] )){
                 $fields["sources"]["default"]['sdcard'] = [
-                    "label" => __( "SD Card", "disciple_tools_language" ),
+                    "label" => __( "SD Card", "RSDT" ),
                     "description" => "from Rooze Sevom Import"
                 ];
             }
             if ( isset( $fields["sources"]["default"] )){
                 $fields["sources"]["default"]['friend'] = [
-                    "label" => __( "Friend", "disciple_tools_language" ),
+                    "label" => __( "Friend", "RSDT" ),
                     "description" => "from Rooze Sevom Import"
                 ];
             }
             if ( isset( $fields["sources"]["default"] )){
                 $fields["sources"]["default"]['familyMember'] = [
-                    "label" => __( "Family Member", "disciple_tools_language" ),
+                    "label" => __( "Family Member", "RSDT" ),
                     "description" => "from Rooze Sevom Import"
                 ];
             }
             if ( isset( $fields["sources"]["default"] )){
                 $fields["sources"]["default"]['RS.com'] = [
-                    "label" => __( "RS.com", "disciple_tools_language" ),
+                    "label" => __( "RS.com", "RSDT" ),
                     "description" => "from Rooze Sevom Import"
                 ];
             }
@@ -70,46 +70,46 @@ class RSDT_Functions
 
             if ( isset( $fields["milestones"]["default"] )){
                 $fields["milestones"]["default"]['friend'] = [
-                    "label" => __( "Friend", "disciple_tools_language" ),
+                    "label" => __( "Friend", "RSDT" ),
                     "description" => "from Rooze Sevom Import"
                 ];
             }
             if ( isset( $fields["milestones"]["default"] )){
                 $fields["milestones"]["default"]['seeker'] = [
-                    "label" => __( "Seeker", "disciple_tools_language" ),
+                    "label" => __( "Seeker", "RSDT" ),
                     "description" => "from Rooze Sevom Import"
                 ];
             }
             if ( isset( $fields["milestones"]["default"] )){
                 $fields["milestones"]["default"]['newbeliever'] = [
-                    "label" => __( "New Believer", "disciple_tools_language" ),
+                    "label" => __( "New Believer", "RSDT" ),
                     "description" => "from Rooze Sevom Import"
                 ];
             }
             if ( isset( $fields["milestones"]["default"] )){
                 $fields["milestones"]["default"]['believer'] = [
-                    "label" => __( "Believer", "disciple_tools_language" ),
+                    "label" => __( "Believer", "RSDT" ),
                     "description" => "from Rooze Sevom Import"
                 ];
             }
             if ( !isset( $fields["martialStatus"] )){
                 $fields["maritalStatus"] = [
-                    "name" => __( "Marital Status", "disciple_tools_language" ),
+                    "name" => __( "Marital Status", "RSDT" ),
                     "type" => "key_select",
                     "tile" => "rooze_sevom",
                     "customizable" => "all",
                     "default" => [
-                        "" => __( "", "disciple_tools_language" ),
-                        "married" => __( "Married", "disciple_tools_language" ),
-                        "single" => __( "Single", "disciple_tools_language" ),
-                        "divorced" => __( "Divorced", "disciple_tools_language" )
+                        "" => __( "", "RSDT" ),
+                        "married" => __( "Married", "RSDT" ),
+                        "single" => __( "Single", "RSDT" ),
+                        "divorced" => __( "Divorced", "RSDT" )
                     ]
                 ];
             }
             if ( !isset( $fields["alias"] )){
                 //define the language field
                 $fields["alias"] = [
-                    "name" => __( "Alias", "disciple_tools_language" ),
+                    "name" => __( "Alias", "RSDT" ),
                     "type" => "text",
                     "default" => "",
                     "tile" => "rooze_sevom",
@@ -119,7 +119,7 @@ class RSDT_Functions
             if ( !isset( $fields["education"] )){
                 //define the language field
                 $fields["education"] = [
-                    "name" => __( "Education", "disciple_tools_language" ),
+                    "name" => __( "Education", "RSDT" ),
                     "type" => "text",
                     "default" => "",
                     "tile" => "rooze_sevom",
@@ -130,7 +130,7 @@ class RSDT_Functions
             if ( !isset( $fields["religion"] )){
                 //define the language field
                 $fields["religion"] = [
-                    "name" => __( "Religion", "disciple_tools_language" ),
+                    "name" => __( "Religion", "RSDT" ),
                     "type" => "text",
                     "default" => "",
                     "tile" => "rooze_sevom",
@@ -141,7 +141,7 @@ class RSDT_Functions
             if ( !isset( $fields["religiousOrientation"] )){
                 //define the language field
                 $fields["religiousOrientation"] = [
-                    "name" => __( "Religion Orientation", "disciple_tools_language" ),
+                    "name" => __( "Religion Orientation", "RSDT" ),
                     "type" => "text",
                     "default" => "",
                     "tile" => "rooze_sevom",
@@ -152,7 +152,7 @@ class RSDT_Functions
             if ( !isset( $fields["occupation"] )){
                 //define the language field
                 $fields["occupation"] = [
-                    "name" => __( "Occupation", "disciple_tools_language" ),
+                    "name" => __( "Occupation", "RSDT" ),
                     "type" => "text",
                     "default" => "",
                     "tile" => "rooze_sevom",
@@ -163,7 +163,7 @@ class RSDT_Functions
             if ( !isset( $fields["dateOfBirth"] )){
                 //define the language field
                 $fields["dateOfBirth"] = [
-                    "name" => __( "Date of Birth", "disciple_tools_language" ),
+                    "name" => __( "Date of Birth", "RSDT" ),
                     "type" => "date",
                     "default" => "",
                     "tile" => "rooze_sevom",
@@ -174,7 +174,7 @@ class RSDT_Functions
             if ( !isset( $fields["dateOfFaith"] )){
                 //define the language field
                 $fields["dateOfFaith"] = [
-                    "name" => __( "Date of Faith", "disciple_tools_language" ),
+                    "name" => __( "Date of Faith", "RSDT" ),
                     "type" => "date",
                     "default" => "",
                     "tile" => "rooze_sevom",
@@ -185,7 +185,7 @@ class RSDT_Functions
             if ( !isset( $fields["churchName"] )){
                 //define the language field
                 $fields["churchName"] = [
-                    "name" => __( "Church Name", "disciple_tools_language" ),
+                    "name" => __( "Church Name", "RSDT" ),
                     "type" => "text",
                     "default" => "",
                     "tile" => "rooze_sevom",
@@ -196,7 +196,7 @@ class RSDT_Functions
             if ( !isset( $fields["pastorName"] )){
                 //define the language field
                 $fields["pastorName"] = [
-                    "name" => __( "Pastor's Name", "disciple_tools_language" ),
+                    "name" => __( "Pastor's Name", "RSDT" ),
                     "type" => "text",
                     "default" => "",
                     "tile" => "rooze_sevom",
@@ -207,7 +207,7 @@ class RSDT_Functions
             if ( !isset( $fields["numberOfChildren"] )){
                 //define the language field
                 $fields["numberOfChildren"] = [
-                    "name" => __( "Number of Children", "disciple_tools_language" ),
+                    "name" => __( "Number of Children", "RSDT" ),
                     "type" => "text",
                     "default" => "",
                     "tile" => "rooze_sevom",
@@ -246,52 +246,52 @@ class RSDT_Functions
             </style>
 
             <div class="section-subheader">
-                <?php esc_html_e( 'Alias', 'disciple_tools' ) ?>
+                <?php esc_html_e( 'Alias', 'RSDT' ) ?>
             </div>
             <input id="alias" type="text" class="text-input" value="<?php echo esc_html( isset($contact["alias"]) ? $contact["alias"] : "" ) ?>">
 
             <div class="section-subheader">
-                <?php esc_html_e( 'Education', 'disciple_tools' ) ?>
+                <?php esc_html_e( 'Education', 'RSDT' ) ?>
             </div>
             <input id="education" type="text" class="text-input" value="<?php echo esc_html( isset($contact["education"]) ? $contact["education"] : "" ) ?>">
 
             <div class="section-subheader">
-                <?php esc_html_e( 'Religion', 'disciple_tools' ) ?>
+                <?php esc_html_e( 'Religion', 'RSDT' ) ?>
             </div>
             <input id="religion" type="text" class="text-input" value="<?php echo esc_html( isset($contact["religion"]) ? $contact["religion"] : "" ) ?>">
 
             <div class="section-subheader">
-                <?php esc_html_e( 'Religious Orientation', 'disciple_tools' ) ?>
+                <?php esc_html_e( 'Religious Orientation', 'RSDT' ) ?>
             </div>
             <input id="religiousOrientation" type="text" class="text-input" value="<?php echo esc_html( isset($contact["religiousOrientation"]) ? $contact["religiousOrientation"] : "" ) ?>">
 
             <div class="section-subheader">
-                <?php esc_html_e( 'Occupation', 'disciple_tools' ) ?>
+                <?php esc_html_e( 'Occupation', 'RSDT' ) ?>
             </div>
             <input id="occupation" type="text" class="text-input" value="<?php echo esc_html( isset($contact["occupation"]) ? $contact["occupation"] : "" ) ?>">
 
             <div class="section-subheader">
-                <?php esc_html_e( 'Date of Birth', 'disciple_tools' ) ?>
+                <?php esc_html_e( 'Date of Birth', 'RSDT' ) ?>
             </div>
             <input type="text" class="date-picker dt_date_picker" id="dateOfBirth" autocomplete="off"  data-date-format='yy-mm-dd' value="<?php echo esc_html( isset($contact["dateOfBirth"]) ? $contact["dateOfBirth"]["formatted"] : "" ) ?>">
 
             <div class="section-subheader">
-                <?php esc_html_e( 'Date of Faith', 'disciple_tools' ) ?>
+                <?php esc_html_e( 'Date of Faith', 'RSDT' ) ?>
             </div>
             <input type="text" class="date-picker dt_date_picker" id="dateOfFaith" autocomplete="off"  data-date-format='yy-mm-dd' value="<?php echo esc_html( isset($contact["dateOfFaith"]) ? $contact["dateOfFaith"]["formatted"] : "" ) ?>">
 
             <div class="section-subheader">
-                <?php esc_html_e( 'Church Name', 'disciple_tools' ) ?>
+                <?php esc_html_e( 'Church Name', 'RSDT' ) ?>
             </div>
             <input id="churchName" type="text" class="text-input" value="<?php echo esc_html( isset($contact["churchName"]) ? $contact["churchName"] : "" ) ?>">
 
             <div class="section-subheader">
-                <?php esc_html_e( "Pastor's Name", 'disciple_tools' ) ?>
+                <?php esc_html_e( "Pastor's Name", 'RSDT' ) ?>
             </div>
             <input id="pastorName" type="text" class="text-input" value="<?php echo esc_html( isset($contact["pastorName"]) ? $contact["pastorName"] : "" ) ?>">
 
             <div class="section-subheader">
-                <?php esc_html_e( 'Marital Status', 'disciple_tools' ) ?>
+                <?php esc_html_e( 'Marital Status', 'RSDT' ) ?>
             </div>
             <select class="select-field" id="maritalStatus" style="margin-bottom: 0px">
                 <?php
@@ -308,7 +308,7 @@ class RSDT_Functions
             </select>
 
             <div class="section-subheader">
-                <?php esc_html_e( 'Number of Children', 'disciple_tools' ) ?>
+                <?php esc_html_e( 'Number of Children', 'RSDT' ) ?>
             </div>
             <input id="numberOfChildren" type="text" class="text-input" value="<?php echo esc_html( isset($contact["numberOfChildren"]) ? $contact["numberOfChildren"] : "" ) ?>">
 

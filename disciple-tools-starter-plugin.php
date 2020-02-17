@@ -5,6 +5,8 @@
  * Description: Extending Disciple Tools to accommmodate Rooze Sevom's Needs
  * Version:  0.1.1
  * Author URI: https://github.com/micahmills
+ * Text Domain: RSDT
+ * Domain Path: /languages/
  * GitHub Plugin URI: https://github.com/micahmills/RS-DTools-plugin
  * Requires at least: 4.7.0
  * (Requires 4.7+ because of the integration of the REST API at 4.7 and the security requirements of this milestone version.)
