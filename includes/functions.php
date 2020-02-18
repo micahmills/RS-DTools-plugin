@@ -141,7 +141,7 @@ class RSDT_Functions
             if ( !isset( $fields["religiousOrientation"] )){
                 //define the language field
                 $fields["religiousOrientation"] = [
-                    "name" => __( "Religion Orientation", "RSDT" ),
+                    "name" => __( "Religious Orientation", "RSDT" ),
                     "type" => "text",
                     "default" => "",
                     "tile" => "rooze_sevom",
@@ -247,7 +247,6 @@ class RSDT_Functions
 
             <div class="section-subheader">
                 <?php esc_html_e( 'Alias', 'RSDT' ) ?>
-                Test
             </div>
             <input id="alias" type="text" class="text-input" value="<?php echo esc_html( isset( $contact["alias"] ) ? $contact["alias"] : "" ) ?>">
 

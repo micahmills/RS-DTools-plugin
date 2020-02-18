@@ -1,4 +1,4 @@
-# Copyright (C) 2020 
+# Copyright (C) 2020
 # This file is distributed under the same license as the Rooze3Vom Disciple Tools plugin.
 msgid ""
 msgstr ""
@@ -101,7 +101,7 @@ msgid "Religion"
 msgstr "دین"
 
 #: includes/functions.php:144
-msgid "Religion Orientation"
+msgid "Religious Orientation"
 msgstr "گرایش مذهبی"
 
 #: includes/functions.php:155

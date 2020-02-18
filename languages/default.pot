@@ -100,7 +100,7 @@ msgid "Religion"
 msgstr ""
 
 #: includes/functions.php:144
-msgid "Religion Orientation"
+msgid "Religious Orientation"
 msgstr ""
 
 #: includes/functions.php:155
