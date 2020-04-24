@@ -273,12 +273,28 @@ class RSDT_Functions
             <div class="section-subheader">
                 <?php esc_html_e( 'Date of Birth', 'RSDT' ) ?>
             </div>
-            <input type="text" class="date-picker dt_date_picker" id="dateOfBirth" autocomplete="off"  data-date-format='yy-mm-dd' value="<?php echo esc_html( isset( $contact["dateOfBirth"] ) ? $contact["dateOfBirth"]["formatted"] : "" ) ?>">
+            <div class="dateOfBirth">
+                <div class="dateOfBirth input-group">
+                    <input id="dateOfBirth" class="input-group-field dt_date_picker" type="text" autocomplete="off"
+                            value="<?php echo esc_html( $contact["dateOfBirth"]["timestamp"] ?? '' )?>" >
+                    <div class="input-group-button">
+                        <button id="dateOfBirth-clear-button" class="button alert clear-date-button" data-inputid="dateOfBirth" title="Delete Date">x</button>
+                    </div>
+                </div>
+            </div>
 
             <div class="section-subheader">
                 <?php esc_html_e( 'Date of Faith', 'RSDT' ) ?>
             </div>
-            <input type="text" class="date-picker dt_date_picker" id="dateOfFaith" autocomplete="off"  data-date-format='yy-mm-dd' value="<?php echo esc_html( isset( $contact["dateOfFaith"] ) ? $contact["dateOfFaith"]["formatted"] : "" ) ?>">
+            <div class="dateOfFaith">
+                <div class="dateOfFaith input-group">
+                    <input id="dateOfFaith" class="input-group-field dt_date_picker" type="text" autocomplete="off"
+                            value="<?php echo esc_html( $contact["dateOfFaith"]["timestamp"] ?? '' )?>" >
+                    <div class="input-group-button">
+                        <button id="dateOfFaith-clear-button" class="button alert clear-date-button" data-inputid="dateOfFaith" title="Delete Date">x</button>
+                    </div>
+                </div>
+            </div>
 
             <div class="section-subheader">
                 <?php esc_html_e( 'Church Name', 'RSDT' ) ?>
@@ -296,7 +312,7 @@ class RSDT_Functions
             <select class="select-field" id="maritalStatus" style="margin-bottom: 0px">
                 <?php
                 foreach ( $contact_fields["maritalStatus"]["default"] as $key => $value ) {
-                    if ( $contact["maritalStatus"]["key"] === $key ) {
+                    if ( isset( $contact["maritalStatus"] ) && $contact["maritalStatus"]["key"] === $key ) {
                         ?>
                         <option value="<?php echo esc_html( $key ) ?>"
                                 selected><?php echo esc_html( $value["label"] ); ?></option>
