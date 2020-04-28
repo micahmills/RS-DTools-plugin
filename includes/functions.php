@@ -124,6 +124,16 @@ class RSDT_Functions
                     ]
                 ];
             }
+            if ( !isset( $fields["dateOfmarriage"] )){
+                //define the language field
+                $fields["dateOfmarriage"] = [
+                    "name" => __( "Date of Marriage", "RSDT" ),
+                    "type" => "date",
+                    "default" => "",
+                    "tile" => "rooze_sevom",
+                    "customizable" => "all"
+                ];
+            }
             if ( !isset( $fields["alias"] )){
                 //define the language field
                 $fields["alias"] = [
@@ -334,6 +344,19 @@ class RSDT_Functions
                 }
                 ?>
             </select>
+
+            <div class="section-subheader">
+                <?php esc_html_e( 'Date of Marriage', 'RSDT' ) ?>
+            </div>
+            <div class="dateOfmarriage">
+                <div class="dateOfmarriage input-group">
+                    <input id="dateOfmarriage" class="input-group-field dt_date_picker" type="text" autocomplete="off"
+                            value="<?php echo esc_html( $contact["dateOfmarriage"]["timestamp"] ?? '' )?>" >
+                    <div class="input-group-button">
+                        <button id="dateOfmarriage-clear-button" class="button alert clear-date-button" data-inputid="dateOfmarriage" title="Delete Date">x</button>
+                    </div>
+                </div>
+            </div>
 
             <div class="section-subheader">
                 <?php esc_html_e( 'Number of Children', 'RSDT' ) ?>
