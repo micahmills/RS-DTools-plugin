@@ -92,7 +92,6 @@ class RSDT_Functions
                     "description" => "from Rooze Sevom Import"
                 ];
             }
-
             if ( isset( $fields["milestones"]["default"] )){
                 $fields["milestones"]["default"]['needs_counseling'] = [
                     "label" => __( "Needs Counseling", "RSDT" ),
@@ -111,9 +110,6 @@ class RSDT_Functions
                     "description" => "from Rooze Sevom Import"
                 ];
             }
-
-
-
             if ( !isset( $fields["martialStatus"] )){
                 $fields["maritalStatus"] = [
                     "name" => __( "Marital Status", "RSDT" ),
@@ -260,13 +256,7 @@ class RSDT_Functions
             $contact_fields = Disciple_Tools_Contact_Post_Type::instance()->get_custom_fields_settings();
             $contact        = Disciple_Tools_Contacts::get_contact( $contact_id, true );
             ?>
-            <!-- need you own css? -->
-            <style type="text/css">
-                .required-style-example {
-                    color: red
-                }
-            </style>
-
+            <div class="section-body"><!-- start collapse -->
             <div class="section-subheader">
                 <?php esc_html_e( 'Alias', 'RSDT' ) ?>
             </div>
@@ -349,6 +339,7 @@ class RSDT_Functions
                 <?php esc_html_e( 'Number of Children', 'RSDT' ) ?>
             </div>
             <input id="numberOfChildren" type="text" class="text-input" value="<?php echo esc_html( isset( $contact["numberOfChildren"] ) ? $contact["numberOfChildren"] : "" ) ?>">
+             <!-- end collapse --></div>
             <?php
         }
         //add more sections here if you want...
