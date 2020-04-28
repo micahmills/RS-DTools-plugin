@@ -120,6 +120,7 @@ class RSDT_Functions
                         "" => "",
                         "married" => __( "Married", "RSDT" ),
                         "single" => __( "Single", "RSDT" ),
+                        "widowed" => __( "Widowed", "RSDT" ),
                         "divorced" => __( "Divorced", "RSDT" )
                     ]
                 ];

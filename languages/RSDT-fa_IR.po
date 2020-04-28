@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Rooze3Vom Disciple Tools 0.1.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/RSDT\n"
-"POT-Creation-Date: 2020-04-28T22:26:06+00:00\n"
-"PO-Revision-Date: 2020-04-29 01:28+0300\n"
+"POT-Creation-Date: 2020-04-28T22:42:39+00:00\n"
+"PO-Revision-Date: 2020-04-29 01:44+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fa_IR\n"
@@ -84,7 +84,7 @@ msgstr "درحال مشاوره است"
 msgid "Counseling Complete"
 msgstr "مشاوره انجام شد"
 
-#: includes/functions.php:115 includes/functions.php:332
+#: includes/functions.php:115 includes/functions.php:333
 msgid "Marital Status"
 msgstr "وضعیت تأهل"
 
@@ -97,50 +97,54 @@ msgid "Single"
 msgstr "مجرد"
 
 #: includes/functions.php:123
+msgid "Widowed"
+msgstr "بیوه"
+
+#: includes/functions.php:124
 msgid "Divorced"
 msgstr "متارکه"
 
-#: includes/functions.php:130 includes/functions.php:349
+#: includes/functions.php:131 includes/functions.php:350
 msgid "Date of Marriage"
 msgstr "تاریخ ازدواج"
 
-#: includes/functions.php:140 includes/functions.php:271
+#: includes/functions.php:141 includes/functions.php:272
 msgid "Alias"
 msgstr "نام مستعار"
 
-#: includes/functions.php:150 includes/functions.php:276
+#: includes/functions.php:151 includes/functions.php:277
 msgid "Education"
 msgstr "تحصیلات"
 
-#: includes/functions.php:161 includes/functions.php:281
+#: includes/functions.php:162 includes/functions.php:282
 msgid "Religion"
 msgstr "دین"
 
-#: includes/functions.php:172 includes/functions.php:286
+#: includes/functions.php:173 includes/functions.php:287
 msgid "Religious Orientation"
 msgstr "گرایش مذهبی"
 
-#: includes/functions.php:183 includes/functions.php:291
+#: includes/functions.php:184 includes/functions.php:292
 msgid "Occupation"
 msgstr "شغل"
 
-#: includes/functions.php:194 includes/functions.php:296
+#: includes/functions.php:195 includes/functions.php:297
 msgid "Date of Birth"
 msgstr "تاریخ تولد"
 
-#: includes/functions.php:205 includes/functions.php:309
+#: includes/functions.php:206 includes/functions.php:310
 msgid "Date of Faith"
 msgstr "تاریخ ایمان"
 
-#: includes/functions.php:216 includes/functions.php:322
+#: includes/functions.php:217 includes/functions.php:323
 msgid "Church Name"
 msgstr "نام کلیسای محلی"
 
-#: includes/functions.php:227 includes/functions.php:327
+#: includes/functions.php:228 includes/functions.php:328
 msgid "Pastor's Name"
 msgstr "نام شبان/ راهنما/ کشیش"
 
-#: includes/functions.php:238 includes/functions.php:362
+#: includes/functions.php:239 includes/functions.php:363
 msgid "Number of Children"
 msgstr "تعداد فرزند"
 
