@@ -92,6 +92,28 @@ class RSDT_Functions
                     "description" => "from Rooze Sevom Import"
                 ];
             }
+
+            if ( isset( $fields["milestones"]["default"] )){
+                $fields["milestones"]["default"]['needs_counseling'] = [
+                    "label" => __( "Needs Counseling", "RSDT" ),
+                    "description" => "from Rooze Sevom Import"
+                ];
+            }
+            if ( isset( $fields["milestones"]["default"] )){
+                $fields["milestones"]["default"]['is_counseling'] = [
+                    "label" => __( "Is Counseling", "RSDT" ),
+                    "description" => "from Rooze Sevom Import"
+                ];
+            }
+            if ( isset( $fields["milestones"]["default"] )){
+                $fields["milestones"]["default"]['believer'] = [
+                    "label" => __( "Counseling Complete", "RSDT" ),
+                    "description" => "from Rooze Sevom Import"
+                ];
+            }
+
+
+
             if ( !isset( $fields["martialStatus"] )){
                 $fields["maritalStatus"] = [
                     "name" => __( "Marital Status", "RSDT" ),
