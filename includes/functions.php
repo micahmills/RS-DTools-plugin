@@ -335,7 +335,7 @@ class RSDT_Functions
             <select class="select-field" id="maritalStatus" style="margin-bottom: 0px">
                 <?php
                 foreach ( $contact_fields["maritalStatus"]["default"] as $key => $value ) {
-                    if ( isset( $contact["maritalStatus"] ) && $contact["maritalStatus"]["key"] === $key ) {
+                    if ( isset( $contact["maritalStatus"] ) && isset( $contact["maritalStatus"]["key"] ) && $contact["maritalStatus"]["key"] === $key ) {
                         ?>
                         <option value="<?php echo esc_html( $key ) ?>"
                                 selected><?php echo esc_html( $value["label"] ); ?></option>
