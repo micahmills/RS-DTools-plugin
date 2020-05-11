@@ -110,11 +110,19 @@ class RSDT_Functions
                     "description" => "from Rooze Sevom Import"
                 ];
             }
+            if ( !isset( $fields["alias"] )){
+                //define the language field
+                $fields["alias"] = [
+                    "name" => __( "Alias", "RSDT" ),
+                    "type" => "text",
+                    "default" => "",
+                    "customizable" => "all"
+                ];
+            }
             if ( !isset( $fields["martialStatus"] )){
                 $fields["maritalStatus"] = [
                     "name" => __( "Marital Status", "RSDT" ),
                     "type" => "key_select",
-                    "tile" => "rooze_sevom",
                     "customizable" => "all",
                     "default" => [
                         "" => "",
@@ -131,17 +139,6 @@ class RSDT_Functions
                     "name" => __( "Date of Marriage", "RSDT" ),
                     "type" => "date",
                     "default" => "",
-                    "tile" => "rooze_sevom",
-                    "customizable" => "all"
-                ];
-            }
-            if ( !isset( $fields["alias"] )){
-                //define the language field
-                $fields["alias"] = [
-                    "name" => __( "Alias", "RSDT" ),
-                    "type" => "text",
-                    "default" => "",
-                    "tile" => "rooze_sevom",
                     "customizable" => "all"
                 ];
             }
@@ -151,7 +148,6 @@ class RSDT_Functions
                     "name" => __( "Education", "RSDT" ),
                     "type" => "text",
                     "default" => "",
-                    "tile" => "rooze_sevom",
                     "customizable" => "all"
                 ];
             }
@@ -162,7 +158,6 @@ class RSDT_Functions
                     "name" => __( "Religion", "RSDT" ),
                     "type" => "text",
                     "default" => "",
-                    "tile" => "rooze_sevom",
                     "customizable" => "all"
                 ];
             }
@@ -173,7 +168,6 @@ class RSDT_Functions
                     "name" => __( "Religious Orientation", "RSDT" ),
                     "type" => "text",
                     "default" => "",
-                    "tile" => "rooze_sevom",
                     "customizable" => "all"
                 ];
             }
@@ -184,7 +178,6 @@ class RSDT_Functions
                     "name" => __( "Occupation", "RSDT" ),
                     "type" => "text",
                     "default" => "",
-                    "tile" => "rooze_sevom",
                     "customizable" => "all"
                 ];
             }
@@ -195,7 +188,6 @@ class RSDT_Functions
                     "name" => __( "Date of Birth", "RSDT" ),
                     "type" => "date",
                     "default" => "",
-                    "tile" => "rooze_sevom",
                     "customizable" => "all"
                 ];
             }
@@ -206,7 +198,6 @@ class RSDT_Functions
                     "name" => __( "Date of Faith", "RSDT" ),
                     "type" => "date",
                     "default" => "",
-                    "tile" => "rooze_sevom",
                     "customizable" => "all"
                 ];
             }
@@ -217,7 +208,6 @@ class RSDT_Functions
                     "name" => __( "Church Name", "RSDT" ),
                     "type" => "text",
                     "default" => "",
-                    "tile" => "rooze_sevom",
                     "customizable" => "all"
                 ];
             }
@@ -228,7 +218,6 @@ class RSDT_Functions
                     "name" => __( "Pastor's Name", "RSDT" ),
                     "type" => "text",
                     "default" => "",
-                    "tile" => "rooze_sevom",
                     "customizable" => "all"
                 ];
             }
@@ -239,7 +228,6 @@ class RSDT_Functions
                     "name" => __( "Number of Children", "RSDT" ),
                     "type" => "text",
                     "default" => "",
-                    "tile" => "rooze_sevom",
                     "customizable" => "all"
                 ];
             }
