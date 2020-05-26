@@ -5,14 +5,14 @@ msgstr ""
 "Project-Id-Version: Rooze3Vom Disciple Tools 0.1.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/RSDT\n"
 "POT-Creation-Date: 2020-04-28T22:42:39+00:00\n"
-"PO-Revision-Date: 2020-04-29 01:44+0300\n"
+"PO-Revision-Date: 2020-05-26 21:36+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.3.1\n"
 "X-Domain: roozeSevom_disciple_tools\n"
 "Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
 
@@ -144,7 +144,19 @@ msgstr "نام کلیسای محلی"
 msgid "Pastor's Name"
 msgstr "نام شبان/ راهنما/ کشیش"
 
-#: includes/functions.php:239 includes/functions.php:363
+#: includes/functions.php:234
+msgid "Children"
+msgstr "فرزندان"
+
+#: includes/functions.php:241
+msgid "Yes"
+msgstr "بله"
+
+#: includes/functions.php:241
+msgid "No"
+msgstr "خیر"
+
+#: includes/functions.php:249 includes/functions.php:363
 msgid "Number of Children"
 msgstr "تعداد فرزند"
 

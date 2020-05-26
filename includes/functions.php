@@ -102,7 +102,7 @@ class RSDT_Functions
                 ];
             }
             if ( isset( $fields["milestones"]["default"] )){
-                $fields["milestones"]["default"]['believer'] = [
+                $fields["milestones"]["default"]['counseling_complete'] = [
                     "label" => __( "Counseling Complete", "RSDT" ),
                     "description" => "from Rooze Sevom Import"
                 ];
@@ -227,6 +227,19 @@ class RSDT_Functions
                     "default" => "",
                     "tile" => "rooze_sevom",
                     "customizable" => "all"
+                ];
+            }
+            if ( !isset( $fields["children"] )){
+                $fields["children"] = [
+                    "name" => __( "Children", "RSDT" ),
+                    "type" => "key_select",
+                    "tile" => "rooze_sevom",
+                    "customizable" => "all",
+                    "default" => [
+                        "" => "",
+                        "single" => __( "Yes", "RSDT" ),
+                        "widowed" => __( "No", "RSDT" ),
+                    ]
                 ];
             }
             if ( !isset( $fields["numberOfChildren"] )){
